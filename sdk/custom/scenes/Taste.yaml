@@ -14,4 +14,4 @@ intentEvents:
 - handler:
     webhookHandler: taste_handler
   intent: taste
-  transitionToScene: Next
+  transitionToScene: Size

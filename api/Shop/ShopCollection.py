@@ -95,3 +95,56 @@ class ShopCollection:
                 },
             }
         }
+    
+    def errorResponse(self):
+        return {
+            "session": {
+                "id": self.session_id,
+                "params": {}
+            },
+            "prompt": {
+                "override": False,
+                "firstSimple": {
+                    "speech": "Sorry, We are unable to get. Please try again.",
+                    "text": "orry, We are unable to get. Please try again."
+                },
+            }
+        }
+    
+    def fadeEndResponse(self):
+        return {
+            "session": {
+                "id": self.session_id,
+                "params": {}
+            },
+            "prompt": {
+                "override": False,
+                "firstSimple": {
+                    "speech": "Thank you.",
+                    "text": "Thank you."
+                },
+            }
+        }
+
+    def placeorderResponse(self, item):
+        return {
+        "session": {
+            "id": self.session_id,
+            "params": {}
+        },
+        "prompt": {
+            "override": False,
+            "firstSimple": {
+                "speech": "You selected {} with {} size, and {} taste. Total price is {}. Would you like to confirm your order?".format(item['menu']['name'], item['size'], item['taste'], item['menu']['price']),
+                "text": "You selected {} with {} size, and {} taste. Total price is {}. Would you like to confirm your order?".format(item['menu']['name'], item['size'], item['taste'], item['menu']['price'])
+            },
+            "suggestions": [
+                {
+                    "title": "Yes, I do"
+                }, 
+                {
+                    "title": "No, No I don't"
+                }
+            ]
+        }
+    }

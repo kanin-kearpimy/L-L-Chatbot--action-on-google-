@@ -1,0 +1,18 @@
+onEnter:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: How size is it?
+        suggestions:
+        - title: Upper big dish
+        - title: Big dish
+        - title: Medium dish
+        - title: Small dish
+
+intentEvents:
+- handler:
+    webhookHandler: size_handler
+  intent: size
+  transitionToScene: Placeholder

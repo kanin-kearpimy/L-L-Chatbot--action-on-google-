@@ -27,22 +27,35 @@ async def main(request: Request):
     if(session_id in orders.keys()):
         current_item = len(orders[session_id]) - 1
     if(handler_name == "shop_item"):
-        init_menu = {'menu': {}, 'taste': '', 'status': 'pending'}
+        init_menu = {'menu': {}, 'taste': '', 'size': '', 'status': 'pending'}
         if(session_id in orders.keys()):
             orders[session_id].append(init_menu)
         else:
             orders[session_id] = [init_menu]
         return shop.generateCollection()
     elif(handler_name == "taste_handler"):
-        print(current_item)
         taste_select = assistant_request['intent']['query']
         orders[session_id][current_item]['taste'] = taste_select
     elif(handler_name == "display_shop_item_result"):
         item_select = assistant_request['intent']['query']
         item_key = assistant_request['intent']['params']['item_option']['resolved']
         orders[session_id][current_item]['menu'] = menu[item_key]
-        orders[session_id][current_item]['status'] = 'completed'
         return shop.generateSimpleResponse(item_select)
+    elif(handler_name == "size_handler"):
+        size_select = assistant_request['intent']['query']
+        orders[session_id][current_item]['size'] = size_select
+    elif(handler_name == "placeholder_onenter_handler"):
+        return shop.placeorderResponse(orders[session_id][current_item])
+    elif(handler_name == "placeholder_handler"):
+        answer = assistant_request['intent']['query']
+        if("YES" in answer.upper()):
+            orders[session_id][current_item]['status'] = 'completed'
+        else:
+            orders[session_id].pop(current_item)
+            current_item = current_item - 1
+        return shop.fadeEndResponse()
+    else:
+        return shop.errorResponse()
 
 @app.get('/order')
 async def order():

@@ -1,5 +1,5 @@
 httpsEndpoint:
-  baseUrl: <API ENDPOINT>
+  baseUrl: https://7ebb-2001-fb1-d3-189e-a89a-37af-fe6e-6548.ngrok.io
   endpointApiVersion: 2
 handlers:
 - name: james_shop
@@ -8,3 +8,6 @@ handlers:
 - name: shop_item
 - name: display_shop_item_result
 - name: taste_handler
+- name: size_handler
+- name: placeholder_handler
+- name: placeholder_onenter_handler
