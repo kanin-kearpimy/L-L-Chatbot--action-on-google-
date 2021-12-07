@@ -1,0 +1,13 @@
+synonym:
+  entities:
+    Neutral:
+      synonyms:
+      - Neutral
+      - neutral
+      - normal
+    Spicy:
+      synonyms:
+      - Spicy
+      - spicy
+      - hot
+  matchType: EXACT_MATCH

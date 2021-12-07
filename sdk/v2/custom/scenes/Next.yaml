@@ -1,0 +1,15 @@
+intentEvents:
+- intent: actions.intent.YES
+  transitionToScene: TestingRestaurant
+- intent: actions.intent.NO
+  transitionToScene: actions.scene.END_CONVERSATION
+onEnter:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: Would you like to order another one?
+        suggestions:
+        - title: "Yes"
+        - title: "No"

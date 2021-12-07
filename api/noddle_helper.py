@@ -37,10 +37,10 @@ async def main(request: Request):
         taste_select = assistant_request['intent']['query']
         orders[session_id][current_item]['taste'] = taste_select
     elif(handler_name == "display_shop_item_result"):
-        item_select = assistant_request['intent']['query']
-        item_key = assistant_request['intent']['params']['item_option']['resolved']
+        # item_select = assistant_request['intent']['query']
+        item_key = assistant_request['scene']['slots']['NoodleType']['value']
         orders[session_id][current_item]['menu'] = menu[item_key]
-        return shop.generateSimpleResponse(item_select)
+        # return shop.generateSimpleResponse(item_select)
     elif(handler_name == "size_handler"):
         size_select = assistant_request['intent']['query']
         orders[session_id][current_item]['size'] = size_select

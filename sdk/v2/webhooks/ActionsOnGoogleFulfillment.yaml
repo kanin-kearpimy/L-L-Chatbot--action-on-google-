@@ -1,0 +1,10 @@
+handlers:
+- name: shop_item
+- name: display_shop_item_result
+- name: size_handler
+- name: taste_handler
+- name: placeholder_handler
+- name: placeholder_onenter_handler
+httpsEndpoint:
+  baseUrl: https://8891-2001-fb1-db-1e35-e01a-e1f-5e65-46b4.ngrok.io
+  endpointApiVersion: 2

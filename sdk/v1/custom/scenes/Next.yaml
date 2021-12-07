@@ -1,0 +1,16 @@
+onEnter:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: Do you want to continue ordering another shop?
+        suggestions:
+        - title: Yes I do
+        - title: No I don't
+
+intentEvents:
+- intent: _yes
+  transitionToScene: Shop
+- intent: _no
+  transitionToScene: actions.scene.END_CONVERSATION

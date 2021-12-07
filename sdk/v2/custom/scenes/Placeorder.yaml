@@ -1,0 +1,11 @@
+intentEvents:
+- handler:
+    webhookHandler: placeholder_handler
+  intent: actions.intent.YES
+  transitionToScene: Next
+- handler:
+    webhookHandler: placeholder_handler
+  intent: actions.intent.NO
+  transitionToScene: Next
+onEnter:
+  webhookHandler: placeholder_onenter_handler

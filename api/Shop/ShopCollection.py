@@ -10,7 +10,7 @@ class ShopCollection:
             "params": {},
         "typeOverrides": [
             {
-            "name": "item_option",
+            "name": "NoodleType",
             "synonym": {
                 "entries": [
                 {

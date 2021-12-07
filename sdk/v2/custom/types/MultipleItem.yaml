@@ -1,0 +1,18 @@
+synonym:
+  entities:
+    Big:
+      synonyms:
+      - Big
+      - large
+      - biggest
+    Blue:
+      synonyms:
+      - Blue
+      - Blue Water
+      - blue
+      - blue water
+    Spicy:
+      synonyms:
+      - Spicy
+      - hot
+  matchType: FUZZY_MATCH
