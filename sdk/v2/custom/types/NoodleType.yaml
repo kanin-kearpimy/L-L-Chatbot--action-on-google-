@@ -1,0 +1,13 @@
+synonym:
+  entities:
+    Blue Water:
+      synonyms:
+      - Blue Water
+      - blue
+      - Blue
+    Red Water:
+      synonyms:
+      - Red Water
+      - Red
+      - red
+  matchType: EXACT_MATCH

@@ -1,0 +1,17 @@
+onEnter:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: Which taste do you prefer?
+        suggestions:
+        - title: Spicy
+        - title: Neutral
+        - title: Umami
+
+intentEvents:
+- handler:
+    webhookHandler: taste_handler
+  intent: taste
+  transitionToScene: Size
