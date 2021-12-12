@@ -1,0 +1,8 @@
+synonym:
+  entities:
+    ITEM_1:
+      synonyms:
+      - Noodle Red Water
+      - Red Water
+      - Red
+  matchType: EXACT_MATCH

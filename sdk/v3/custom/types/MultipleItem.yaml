@@ -1,0 +1,27 @@
+synonym:
+  entities:
+    noodle blue water with big size and neutral taste:
+      synonyms:
+      - noodle blue water with big size and neutral taste
+    noodle blue water with big size and spicy taste:
+      synonyms:
+      - noodle blue water with big size and spicy taste
+    noodle blue water with medium size and neutral taste:
+      synonyms:
+      - noodle blue water with medium size and neutral taste
+    noodle blue water with medium size and spicy taste:
+      synonyms:
+      - noodle blue water with medium size and spicy taste
+    noodle red water with big size and neutral taste:
+      synonyms:
+      - noodle red water with big size and neutral taste
+    noodle red water with big size and spicy taste:
+      synonyms:
+      - noodle red water with big size and spicy taste
+    noodle red water with medium size and neutral taste:
+      synonyms:
+      - noodle red water with medium size and neutral taste
+    noodle red water with medium size and spicy taste:
+      synonyms:
+      - noodle red water with medium size and spicy taste
+  matchType: FUZZY_MATCH

@@ -1,0 +1,30 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL"
+  handler:
+    webhookHandler: multipleitem
+  transitionToScene: Placeorder
+intentEvents:
+- intent: actions.intent.NO_MATCH_FINAL
+  transitionToScene: TestingRestaurant
+onEnter:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: Please order your wish noodle!
+slots:
+- commitBehavior:
+    writeSessionParam: multipleitem
+  name: multipleitem
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: Test
+  required: true
+  type:
+    name: MultipleItem

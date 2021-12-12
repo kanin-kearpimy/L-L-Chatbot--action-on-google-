@@ -1,0 +1,19 @@
+synonym:
+  entities:
+    Big:
+      synonyms:
+      - Big
+      - big one
+      - huge
+      - large
+      - biggest
+    Medium:
+      synonyms:
+      - normal
+      - medium
+    Small:
+      synonyms:
+      - Small
+      - tiny
+      - small
+  matchType: EXACT_MATCH

@@ -1,0 +1,59 @@
+conditionalEvents:
+- condition: scene.slots.status == "FINAL"
+  handler:
+    webhookHandler: size_handler
+  transitionToScene: Placeorder
+onEnter:
+  staticPrompt:
+    candidates:
+    - promptResponse:
+        firstSimple:
+          variants:
+          - speech: Welcome to Testing Resturant.
+slots:
+- commitBehavior:
+    writeSessionParam: NoodleType
+  name: NoodleType
+  promptSettings:
+    initialPrompt:
+      webhookHandler: shop_item
+  required: true
+  type:
+    name: NoodleType
+- commitBehavior:
+    writeSessionParam: NoodleTaste
+  name: NoodleTaste
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: Which taste do you prefer?
+            suggestions:
+            - title: Spicy
+            - title: Neutral
+      webhookHandler: display_shop_item_result
+  required: true
+  type:
+    name: Taste
+- commitBehavior:
+    writeSessionParam: NoodleSize
+  name: NoodleSize
+  promptSettings:
+    initialPrompt:
+      staticPrompt:
+        candidates:
+        - promptResponse:
+            firstSimple:
+              variants:
+              - speech: How size is it?
+            suggestions:
+            - title: Big
+            - title: Medium
+            - title: Small
+      webhookHandler: taste_handler
+  required: true
+  type:
+    name: Size
