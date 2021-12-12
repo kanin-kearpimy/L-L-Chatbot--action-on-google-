@@ -4,9 +4,15 @@ from Shop.ShopCollection import ShopCollection
 
 app = FastAPI()
 
+CONFIGURATED = {
+    "menu": ["noodle red water", "noodle blue water"],
+    "taste": ["neutral", "spicy"],
+    "size": ["big", "medium", "small"]
+}
+
 orders = {}
 
-menu = {
+MENU = {
     'ITEM_1': {
         'name': 'Noddle Red Water',
         'price': 40
@@ -26,6 +32,14 @@ async def main(request: Request):
     current_item = 0
     if(session_id in orders.keys()):
         current_item = len(orders[session_id]) - 1
+    if(handler_name == "multipleitem"):
+        init_menu = {'menu': {}, 'taste': '', 'size': '', 'status': 'pending'}
+        extract_menu = queryAllSlot(assistant_request['scene']['slots']['multipleitem']['value'], init_menu)
+        if(session_id in orders.keys()):
+            orders[session_id].append(extract_menu)
+        else:
+            orders[session_id] = [extract_menu]
+        return
     if(handler_name == "shop_item"):
         init_menu = {'menu': {}, 'taste': '', 'size': '', 'status': 'pending'}
         if(session_id in orders.keys()):
@@ -39,7 +53,7 @@ async def main(request: Request):
     elif(handler_name == "display_shop_item_result"):
         # item_select = assistant_request['intent']['query']
         item_key = assistant_request['scene']['slots']['NoodleType']['value']
-        orders[session_id][current_item]['menu'] = menu[item_key]
+        orders[session_id][current_item]['menu'] = MENU[item_key]
         # return shop.generateSimpleResponse(item_select)
     elif(handler_name == "size_handler"):
         size_select = assistant_request['intent']['query']
@@ -60,3 +74,14 @@ async def main(request: Request):
 @app.get('/order')
 async def order():
     return orders
+
+
+def queryAllSlot(slot, init_menu):
+    for key in CONFIGURATED.keys():
+        for item in CONFIGURATED[key]:
+            if item in slot:
+                if(key == 'menu'):
+                    init_menu['menu'] = MENU['ITEM_1' if item == 'noodle red water' else 'ITEM_2']
+                else:
+                    init_menu[key] = item
+    return init_menu
